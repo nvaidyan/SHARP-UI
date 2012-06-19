@@ -34,14 +34,7 @@
 				<div class="hero-unit">
 					<h1>Welcome to SHARP Rules</h1>
 
-					<p>Grails scaffolding with a <a href="http://twitter.github.com/bootstrap" rel="external"><em>Twitter
-					Bootstrap</em></a> look &amp; feel?</p>
-					
-					<p>This is a demo of how to reskin Grails dynamic scaffolding pages. I've
-					used The <a href="http://freeside.co/grails-fields">Fields plugin</a> for customizing
-					form rendering and the <a href="https://github.com/groovydev/twitter-bootstrap-grails-plugin">Twitter
-					Bootstrap Resources plugin</a> to provide the CSS resources. Beyond that it&apos;s a
-					bare Grails app using dynamically scaffolded controllers and views.</p>
+					<p>This is a prototype of a customizable, collaborative rules library for physicians</p>
 				</div>
 					
 				<div class="row-fluid">
@@ -57,24 +50,13 @@
 					</div>
 
 					<div class="span4">
-						<h2>Install It</h2>
-						<p>To install this look &amp; feel into your Grails app you will need to:</p>
-						<p>Add the following plugins to your <em>BuildConfig.groovy</em>:</p>
-						<pre>runtime ':twitter-bootstrap:${applicationContext.getBean('pluginManager').getGrailsPlugin('twitter-bootstrap').version}'
-runtime ':fields:${applicationContext.getBean('pluginManager').getGrailsPlugin('fields').version}'</pre>
-						<p>Copy the following files to your project:</p>
-						<pre>src/templates/scaffolding/*
-web-app/css/scaffolding.css
-grails-app/conf/ScaffoldingResources.groovy
-grails-app/taglib/**/*
-grails-app/views/index.gsp
-grails-app/views/layouts/bootstrap.gsp
-grails-app/views/_fields/default/_field.gsp</pre>
+						<h2>Play With It</h2>
+						<p>Try creating a Person, Logging in and Logging Out (not secured yet), and creating a Rule or two</p>
 					</div>
 					
 					<div class="span4">
-						<h2>Fork It</h2>
-						<p>You can download, fork &amp; raise issues on this project on <a href="https://github.com/robfletcher/twitter-bootstrap-scaffolding">GitHub</a>.</p>
+						<h2>Prepare Feedback</h2>
+						<p>Most of the effort has gone onto rapid-prototyping functionality, so keep that in mind! Pretty, secure, etc will come later.</p>
 					</div>
 
 				</div>
@@ -82,7 +64,7 @@ grails-app/views/_fields/default/_field.gsp</pre>
 			</section>
 		</div>
 		
-		<a href="http://github.com/robfletcher/twitter-bootstrap-scaffolding">
+		<a href="https://github.com/nvaidyan/SHARP-UI">
 			<img id="github-ribbon" 
 				 src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"
 				 alt="Fork me on GitHub"/>
