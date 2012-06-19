@@ -38,7 +38,7 @@
 						<span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand" href="${createLink(uri: '/')}">Grails Twitter Bootstrap</a>
+					<a class="brand" href="${createLink(uri: '/')}">SHARP UI</a>
 
 					<div class="nav-collapse">
 						<ul class="nav">							

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="bootstrap"/>
-		<title>ASU BMI Clinical Decision Support</title>
+		<title>Grails Twitter Bootstrap Scaffolding</title>
 	</head>
 
 	<body>
@@ -32,7 +32,7 @@
 			<section id="main" class="span9">
 
 				<div class="hero-unit">
-					<h1>Welcome to SHARP Rules</h1>
+					<h1>Welcome to Grails</h1>
 
 					<p>Grails scaffolding with a <a href="http://twitter.github.com/bootstrap" rel="external"><em>Twitter
 					Bootstrap</em></a> look &amp; feel?</p>

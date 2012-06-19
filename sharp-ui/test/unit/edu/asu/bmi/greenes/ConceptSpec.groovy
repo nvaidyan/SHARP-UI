@@ -10,6 +10,7 @@ import spock.lang.*
  * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
  */
 @TestMixin(GrailsUnitTestMixin)
+@TestFor(Concept)
 class ConceptSpec extends Specification {
 
 	void "A Concept should have a name that is not blank"() {

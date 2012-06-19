@@ -6,11 +6,12 @@ import spock.lang.*
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
+@TestMixin(GrailsUnitTestMixin)
 @TestFor(Rule)
 class RuleSpec extends Specification {
 	Rule rule = new Rule( name:"Exercise when HgA1c too high", 
 						  description: "Prescribe exercise when HgA1c > 7%", 
-						  logic:"If HgA1C > 7% Then Tell Patient to Exercise")
+						  logic:"If HgA1C > 7% Then Tell Patient to Exercise" )
 	
     void "A Rule should have a name that is not blank"() {
        given: "A rule, with either a blank name or real name"
