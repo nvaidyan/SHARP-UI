@@ -33,6 +33,9 @@
 		
 
 		<div class="container-fluid">
+			<g:if test="${flash.message}">
+				<bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
+			</g:if>
 			<g:layoutBody/>
 
 			<hr/>
