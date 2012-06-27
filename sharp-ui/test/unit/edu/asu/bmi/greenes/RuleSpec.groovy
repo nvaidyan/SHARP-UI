@@ -1,6 +1,6 @@
 package edu.asu.bmi.greenes
 
-import grails.test.mixin.*
+import grails.test.mixin.support.GrailsUnitTestMixin
 import spock.lang.*
 
 /**
@@ -8,7 +8,7 @@ import spock.lang.*
  */
 @TestMixin(GrailsUnitTestMixin)
 @TestFor(Rule)
-class RuleSpec extends Specification {
+class RuleSpec extends spock.lang.Specification {
 	Rule rule = new Rule( name:"Exercise when HgA1c too high", 
 						  description: "Prescribe exercise when HgA1c > 7%", 
 						  logic:"If HgA1C > 7% Then Tell Patient to Exercise" )

@@ -127,7 +127,7 @@
 				<p id="create_account">
 					<g:message code="workbench.create.account.prompt"
 						default="Need a User Account?" />
-					<g:link controller="person" action="register">
+					<g:link controller="register" action="index">
 						<g:message code="workbench.create.account"
 							default="Create a User Account?" />
 					</g:link>

@@ -15,25 +15,7 @@ class PersonController {
         [personInstanceList: Person.list(params), personInstanceTotal: Person.count()]
     }
 	
-	def register() {
-		switch (request.method) {
-		case 'GET':
-        	[personInstance: new Person(params)]
-			break
-		case 'POST':
-	        def personInstance = new Person(params)
-	        if (!personInstance.save(flush: true)) {
-	            render view: 'register', model: [personInstance: personInstance]
-	            return
-	        }
-
-			flash.message = message(code: 'default.created.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
-	        redirect action: 'show', id: personInstance.id
-			break
-		}
-	}
-
-    def create() {
+	def create() {
 		switch (request.method) {
 		case 'GET':
         	[personInstance: new Person(params)]
