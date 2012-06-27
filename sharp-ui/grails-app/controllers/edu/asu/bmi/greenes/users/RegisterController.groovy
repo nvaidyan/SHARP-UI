@@ -3,7 +3,7 @@ package edu.asu.bmi.greenes.users
 class RegisterController {
 
 	def index() {
-		[personInstance: new Person(params)]
+		[ personInstance: new Person(params) ]
 	}
 
 	def register() {
