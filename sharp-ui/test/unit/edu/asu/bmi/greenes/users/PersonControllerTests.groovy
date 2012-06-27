@@ -9,11 +9,16 @@ import grails.test.mixin.*
 @Mock(Person)
 class PersonControllerTests {
 
+	@Before
+	void setup() {
+		Person.metaClass.encodePassword = {  -> }
+	}
 
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["username"] = "Joe cool"
+	  params["email"] = "Joe@cool.com"
+	  params["password"] = "dummy"
     }
 
     void testIndex() {
@@ -30,25 +35,10 @@ class PersonControllerTests {
     }
 
     void testCreate() {
+	   request.method = "GET"
        def model = controller.create()
 
        assert model.personInstance != null
-    }
-
-    void testSave() {
-        controller.save()
-
-        assert model.personInstance != null
-        assert view == '/person/create'
-
-        response.reset()
-
-        populateValidParams(params)
-        controller.save()
-
-        assert response.redirectedUrl == '/person/show/1'
-        assert controller.flash.message != null
-        assert Person.count() == 1
     }
 
     void testShow() {
@@ -71,7 +61,8 @@ class PersonControllerTests {
     }
 
     void testEdit() {
-        controller.edit()
+		 request.method = "GET"
+		 controller.edit()
 
         assert flash.message != null
         assert response.redirectedUrl == '/person/list'
@@ -87,52 +78,6 @@ class PersonControllerTests {
         def model = controller.edit()
 
         assert model.personInstance == person
-    }
-
-    void testUpdate() {
-        controller.update()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/person/list'
-
-        response.reset()
-
-
-        populateValidParams(params)
-        def person = new Person(params)
-
-        assert person.save() != null
-
-        // test invalid parameters in update
-        params.id = person.id
-        //TODO: add invalid values to params object
-
-        controller.update()
-
-        assert view == "/person/edit"
-        assert model.personInstance != null
-
-        person.clearErrors()
-
-        populateValidParams(params)
-        controller.update()
-
-        assert response.redirectedUrl == "/person/show/$person.id"
-        assert flash.message != null
-
-        //test outdated version number
-        response.reset()
-        person.clearErrors()
-
-        populateValidParams(params)
-        params.id = person.id
-        params.version = -1
-        controller.update()
-
-        assert view == "/person/edit"
-        assert model.personInstance != null
-        assert model.personInstance.errors.getFieldError('version')
-        assert flash.message != null
     }
 
     void testDelete() {

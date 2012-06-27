@@ -12,9 +12,8 @@ class RoleControllerTests {
 
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
-    }
+      params["authority"] = 'Admin'
+	}
 
     void testIndex() {
         controller.index()
@@ -30,25 +29,9 @@ class RoleControllerTests {
     }
 
     void testCreate() {
-       def model = controller.create()
-
-       assert model.roleInstance != null
-    }
-
-    void testSave() {
-        controller.save()
-
-        assert model.roleInstance != null
-        assert view == '/role/create'
-
-        response.reset()
-
-        populateValidParams(params)
-        controller.save()
-
-        assert response.redirectedUrl == '/role/show/1'
-        assert controller.flash.message != null
-        assert Role.count() == 1
+		request.method = "GET"
+	   def model = controller.create()
+	   assert model.roleInstance != null
     }
 
     void testShow() {
@@ -71,6 +54,7 @@ class RoleControllerTests {
     }
 
     void testEdit() {
+		request.method = "GET"
         controller.edit()
 
         assert flash.message != null
@@ -87,52 +71,6 @@ class RoleControllerTests {
         def model = controller.edit()
 
         assert model.roleInstance == role
-    }
-
-    void testUpdate() {
-        controller.update()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/role/list'
-
-        response.reset()
-
-
-        populateValidParams(params)
-        def role = new Role(params)
-
-        assert role.save() != null
-
-        // test invalid parameters in update
-        params.id = role.id
-        //TODO: add invalid values to params object
-
-        controller.update()
-
-        assert view == "/role/edit"
-        assert model.roleInstance != null
-
-        role.clearErrors()
-
-        populateValidParams(params)
-        controller.update()
-
-        assert response.redirectedUrl == "/role/show/$role.id"
-        assert flash.message != null
-
-        //test outdated version number
-        response.reset()
-        role.clearErrors()
-
-        populateValidParams(params)
-        params.id = role.id
-        params.version = -1
-        controller.update()
-
-        assert view == "/role/edit"
-        assert model.roleInstance != null
-        assert model.roleInstance.errors.getFieldError('version')
-        assert flash.message != null
     }
 
     void testDelete() {

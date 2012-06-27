@@ -12,6 +12,13 @@ import org.junit.*
 @TestMixin(GrailsUnitTestMixin)
 class RuleControllerSpec {
 
+	def populateValidParams(params) {
+		assert params != null
+		params["name"] = 'HgA1C'
+		params["description"] = 'Common test among Greenes group'
+		params["logic"] = 'If HgA1C < 10%, order a test'
+	}
+	
     void setUp() {
         // Setup logic here
     }
