@@ -7,9 +7,9 @@ import spock.lang.*
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestMixin(GrailsUnitTestMixin)
-@TestFor(Rule)
-class RuleSpec extends spock.lang.Specification {
-	Rule rule = new Rule( name:"Exercise when HgA1c too high", 
+@TestFor(GeneralRule)
+class GeneralRuleSpec extends spock.lang.Specification {
+	GeneralRule rule = new GeneralRule( name:"Exercise when HgA1c too high", 
 						  description: "Prescribe exercise when HgA1c > 7%", 
 						  logic:"If HgA1C > 7% Then Tell Patient to Exercise" )
 	
@@ -28,8 +28,8 @@ class RuleSpec extends spock.lang.Specification {
 	
 	void "A Rule should have a unique name"() {
 		given: "two rules with identical names"
-			def rule2 = new Rule(name:"Exercise when HgA1c too high", description:"b", logic:"illogical rule is illogical")
-			mockForConstraintsTests(Rule, [rule, rule2])
+			def rule2 = new GeneralRule(name:"Exercise when HgA1c too high", description:"b", logic:"illogical rule is illogical")
+			mockForConstraintsTests(GeneralRule, [rule, rule2])
 		when: "I try to validate it"
 			rule.save()
 			rule2.validate()
@@ -54,7 +54,7 @@ class RuleSpec extends spock.lang.Specification {
 	void "A Rule should have logic that is more than 10 characters, for understandabiity"() {
 		given: "a Rule with logic that is too short"
 			rule.logic = "a"
-			mockForConstraintsTests(Rule, [rule])
+			mockForConstraintsTests(GeneralRule, [rule])
 		when: "I try to validate it"
 			rule.validate()
 		then: "It should have errors,and the error should be a unique name"
@@ -68,7 +68,7 @@ class RuleSpec extends spock.lang.Specification {
 		when: "I add the concept to the rule, then try to find a rule by the concept"
 			rule.addToConcepts(concept)
 			rule.save()
-			def result = Rule.findAllByConceptsInList([concept])
+			def result = GeneralRule.findAllByConceptsInList([concept])
 		then: "the original rule should be found"
 			rule == result[0]
 	}

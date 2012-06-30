@@ -8,4 +8,6 @@ class Concept {
 		name blank : false, unique : true
 		description blank: false
     }
+	
+	static hasMany = [parents : Concept, children: Concept]
 }

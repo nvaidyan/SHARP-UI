@@ -1,5 +1,5 @@
 package edu.asu.bmi.greenes
 
-class RuleController {
+class GeneralRuleController {
     static scaffold = true
 }
