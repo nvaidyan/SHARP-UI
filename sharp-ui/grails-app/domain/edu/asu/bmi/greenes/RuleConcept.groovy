@@ -4,7 +4,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder
 
 class RuleConcept implements Serializable {
 
-	Rule rule
+	GeneralRule rule
 	Concept concept
 
 	boolean equals(other) {

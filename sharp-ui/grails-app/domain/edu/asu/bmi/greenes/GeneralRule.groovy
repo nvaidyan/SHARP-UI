@@ -18,4 +18,7 @@ class GeneralRule implements Rule {
 	}
 	
 	static hasMany = [ concepts : RuleConcept ]
+	
+	@Override
+	public String toString(){ name }
 }
