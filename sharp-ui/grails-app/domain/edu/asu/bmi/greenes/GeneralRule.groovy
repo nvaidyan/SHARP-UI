@@ -4,6 +4,7 @@ class GeneralRule implements Rule {
 	String name
 	String description
 	String logic
+	String author = "unknown"
 	Date lastUpdated
 	Date dateCreated
 	
@@ -11,9 +12,10 @@ class GeneralRule implements Rule {
 		name blank : false, unique : true
 		description blank : false
 		logic minSize : 10
+		author blank:true
 		lastUpdated()
 		dateCreated()
 	}
 	
-	static hasMany = [ concepts : Concept ]
+	static hasMany = [ concepts : RuleConcept ]
 }

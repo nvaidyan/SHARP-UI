@@ -8,4 +8,5 @@ public interface Rule {
 	public abstract String getLogic();
 	public abstract Date getLastUpdated();
 	public abstract Date getDateCreated();
+	public abstract String getAuthor();
 }

@@ -9,5 +9,9 @@ class Concept {
 		description blank: false
     }
 	
-	static hasMany = [parents : Concept, children: Concept]
+	static hasMany = [ 
+		               parents : Concept, 
+					   children: Concept,
+					   rules : RuleConcept
+					 ]
 }
