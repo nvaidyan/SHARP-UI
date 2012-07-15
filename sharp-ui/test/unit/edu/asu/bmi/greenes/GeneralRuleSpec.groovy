@@ -9,6 +9,7 @@ import spock.lang.*
  */
 @TestMixin(GrailsUnitTestMixin)
 @TestFor(GeneralRule)
+@Mock(RuleConcept)
 class GeneralRuleSpec extends spock.lang.Specification {
 	GeneralRule rule = new GeneralRule( name:"Exercise when HgA1c too high", 
 						  description: "Prescribe exercise when HgA1c > 7%", 
@@ -67,9 +68,8 @@ class GeneralRuleSpec extends spock.lang.Specification {
 		given: "a Rule and a concept"
 			def concept = new Concept(name:"HgA1C", description:"important test for Greenes group")
 		when: "I add the concept to the rule, then try to find a rule by the concept"
-			rule.addToConcepts(concept)
-			rule.save()
-			def result = GeneralRule.findAllByConceptsInList([concept])
+			RuleConcept.create(rule,concept)
+			def result = RuleConcept.findAllRules(concept)
 		then: "the original rule should be found"
 			rule == result[0]
 	}

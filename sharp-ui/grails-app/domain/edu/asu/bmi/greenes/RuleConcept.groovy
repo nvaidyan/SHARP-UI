@@ -31,6 +31,16 @@ class RuleConcept implements Serializable {
 	static RuleConcept create(Rule rule, Concept concept, boolean flush = false) {
 		new RuleConcept(rule: rule, concept: concept).save(flush: flush, insert: true)
 	}
+	
+	static Collection<Rule> findAllRules(Concept concept){
+		def result = RuleConcept.findAllByConcept(concept)
+		result*.rule
+	}
+	
+	static Collection<Concept> findAllConcepts(Rule rule){
+		def result = RuleConcept.findAllByRule(rule)
+		result*.concept
+	}
 
 	static boolean remove(Rule rule, Concept concept, boolean flush = false) {
 		RuleConcept instance = RuleConcept.findByRuleAndConcept(rule, concept)

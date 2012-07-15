@@ -39,4 +39,7 @@ class Person {
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
 	}
+	
+	@Override
+	public String toString() { username }
 }

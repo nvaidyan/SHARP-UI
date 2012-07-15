@@ -54,4 +54,7 @@ class PersonRole implements Serializable {
 		id composite: ['role', 'person']
 		version false
 	}
+	
+	@Override
+	public String toString() { "${role} - ${person}" }
 }
