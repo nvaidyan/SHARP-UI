@@ -9,17 +9,27 @@
 
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li
-						<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a
-						href="${createLink(uri: '/')}">Home</a></li>
-					<g:each var="c"
-						in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li
-							<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link
-								controller="${c.logicalPropertyName}">
-								${c.naturalName}
-							</g:link></li>
-					</g:each>
+					<li id="home"
+						<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>>
+						<a href="${createLink(uri: '/')}">
+							<g:message code="default.home.label" default="Home" />
+						</a>
+					</li>
+					<li id="rules">
+						<g:link uri="/rules">
+							<g:message code="nav.rules" default="Rules" />
+						</g:link>
+					</li>
+					<li id="concepts">
+						<g:link uri="/concepts">
+							<g:message code="nav.concepts" default="Concepts" />
+						</g:link>
+					</li>
+					<li>
+						<g:link uri="/people">
+							<g:message code="nav.people" default="People" />
+						</g:link>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -15,6 +15,7 @@ grails.project.dependency.resolution = {
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
+	def seleniumVersion = "2.21.0"
     repositories {
         inherits true // Whether to inherit repository definitions from plugins
         grailsPlugins()
@@ -34,6 +35,12 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 		// runtime 'mysql:mysql-connector-java:5.1.16'
 		   runtime 'postgresql:postgresql:9.1-901-1.jdbc4'
+		   test("org.seleniumhq.selenium:selenium-htmlunit-driver:$seleniumVersion") {
+			   exclude "xml-apis"
+		   }
+		   test("org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion")
+		   test("org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion")
+		   test "org.codehaus.geb:geb-spock:0.7.0"
     }
 
     plugins {
@@ -45,6 +52,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 		test ":spock:0.6"
+		test ":geb:0.7.0"
 		runtime ":twitter-bootstrap:2.0.2.25"
 		runtime ':fields:1.2'
 		compile ":spring-security-core:1.2.7.1"
