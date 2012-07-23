@@ -24,7 +24,7 @@
 			}
 			
 			var updateRule = function(logic){ 
-				var form =  "<form action='/sharp-ui/generalRule/edit' method='POST'></form>";
+				var form =  "<form action='${g.createLink(controller:"generalRule", action:"edit") }' method='POST'></form>";
 				var id = "<input name='id' value='${generalRuleInstance?.id}' />";
 				var version = "<input name='version' value='${generalRuleInstance?.version}' />";
 				var logic = "<input name='logic' value='" + logic + "' />"; 
