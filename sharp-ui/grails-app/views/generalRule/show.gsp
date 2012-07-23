@@ -95,6 +95,10 @@
 							<i class="icon-pencil"></i>
 							<g:message code="default.button.edit.label" default="Edit" />
 						</g:link>
+						<g:link class="btn" action="editLogic" id="${generalRuleInstance?.id}">
+							<i class="icon-pencil"></i>
+							<g:message code="rule.editLogic" default="Edit Logic" />
+						</g:link>
 						<button class="btn btn-danger" type="submit" name="_action_delete">
 							<i class="icon-trash icon-white"></i>
 							<g:message code="default.button.delete.label" default="Delete" />

@@ -3,7 +3,7 @@ package edu.asu.bmi.greenes
 class GeneralRule implements Rule {
 	String name
 	String description
-	String logic
+	String logic = "This rule is illogical. No logic has been customized yet."
 	String author = "unknown"
 	Date lastUpdated
 	Date dateCreated

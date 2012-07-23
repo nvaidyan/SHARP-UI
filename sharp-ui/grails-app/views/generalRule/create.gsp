@@ -52,7 +52,12 @@
 				<fieldset>
 					<g:form class="form-horizontal" action="create" >
 						<fieldset>
-							<f:all bean="generalRuleInstance"/>
+							<f:with bean="generalRuleInstance">
+								<f:field property="name"/>
+								<f:field property="description"/>
+								<f:field property="author"/>
+							</f:with>
+							
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">
 									<i class="icon-ok icon-white"></i>

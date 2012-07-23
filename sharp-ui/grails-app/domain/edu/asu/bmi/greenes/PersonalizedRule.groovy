@@ -5,7 +5,7 @@ import edu.asu.bmi.greenes.users.Person;
 class PersonalizedRule implements Rule {
 	String name
 	String description
-	String logic
+	String logic = "This rule is illogical. No logic has been customized yet."
 	String author
 	Date lastUpdated
 	Date dateCreated
