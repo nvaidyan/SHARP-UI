@@ -91,12 +91,12 @@
 				<g:form>
 					<g:hiddenField name="id" value="${generalRuleInstance?.id}" />
 					<div class="form-actions">
-						<g:link class="btn" action="edit" id="${generalRuleInstance?.id}">
+						<g:link class="btn btn-primary" action="edit" id="${generalRuleInstance?.id}">
 							<i class="icon-pencil"></i>
 							<g:message code="default.button.edit.label" default="Edit" />
 						</g:link>
-						<g:link class="btn" action="editLogic" id="${generalRuleInstance?.id}">
-							<i class="icon-pencil"></i>
+						<g:link class="btn btn-inverse" action="editLogic" id="${generalRuleInstance?.id}">
+							<i class="icon-eye-close"></i>
 							<g:message code="rule.editLogic" default="Edit Logic" />
 						</g:link>
 						<button class="btn btn-danger" type="submit" name="_action_delete">
