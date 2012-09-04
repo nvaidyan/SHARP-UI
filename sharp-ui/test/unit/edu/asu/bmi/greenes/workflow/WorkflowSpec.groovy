@@ -35,4 +35,14 @@ class WorkflowSpec extends Specification {
 			"valid workflow" | true
 	}
 	
+	void "A workflow should have tasks associated with it"(){
+		given: "A task to assign to a workflow"
+			def workflow = new Workflow(name:"notify of test results", description:"notify parties involved")
+			mockDomain(Workflow, [workflow])
+		when: "I try to add the task to the workflow"
+			def task1 = new Task(name:"email doctor on test", description:"email doctor when patient has test")
+			workflow.addToTasks(task1)
+		then: "the workflow should have a task"
+			workflow.tasks != []
+	}
 }

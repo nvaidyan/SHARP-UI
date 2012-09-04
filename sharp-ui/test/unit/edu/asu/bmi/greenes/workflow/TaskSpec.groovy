@@ -34,4 +34,24 @@ class TaskSpec extends Specification {
 			""	             | false
 			"valid task" | true
 	}
+	
+	void "A task can have events"() {
+		given: "A task with either a blank or non blank description"
+			def task = new Task(name:"email doctor on results", description:"email the doctor when test results are received")
+		and: "an event to associate with that task"
+			def event = new BasicEvent(name:"results received", 
+									   description:"test results computed",
+									   occurred: new Date(), 
+									   payload: [ "result" : 
+										   					 [ 
+																	"patient" : "tester" , 
+																	"test" : "HgA1c", 
+																	"level" : 0.745 
+															 ] 
+												])
+		when: "I assign the event to the task"
+			task.addToEvents(event)
+		then: "the task should have those events"
+			task.events != []
+	}
 }
