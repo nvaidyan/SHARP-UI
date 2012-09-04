@@ -1,8 +1,5 @@
 package edu.asu.bmi.greenes
 
-import static org.junit.Assert.*
-
-import grails.test.mixin.*
 import grails.test.mixin.support.*
 import spock.lang.*
 
@@ -20,7 +17,7 @@ class ConceptSpec extends Specification {
 	   	concept.validate()
 	   then: "It should have errors if the name is blank"
 	   	concept.hasErrors() == !valid
-		where: "a valid concept has a name, an invalid rule is blank"
+		where: "a valid concept has a name, an invalid concept is blank"
 	   		name | valid
 		   ""	 | false
 		   "HgA1c" | true
